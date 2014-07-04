@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+	<!-- 1800: org.bluetooth.service.generic_access -->
+    <service uuid="1800">
+      <description>Generic Access Profile</description>
+	
+		<!-- 2A00: org.bluetooth.characteristic.gap.device_name -->
+      <characteristic uuid="2a00">
+        <properties read="true" const="true" />
+        <value>Gizmo Demo Node</value>
+      </characteristic>
+		<!-- 2A01: org.bluetooth.characteristic.gap.appearance -->
+      <characteristic uuid="2a01">
+        <properties read="true" const="true" />
+        <value type="hex">0832</value>
+      </characteristic>
+	  
+    </service>
+ <!-- 180A: org.bluetooth.service.device_information -->
+    <service uuid="180A" >
+	 <!-- 2A29: org.bluetooth.characteristic.manufacturer_name_string -->
+        <characteristic uuid="2A29">
+            <properties read="true" const="true" />
+            <value>Bluegiga</value>
+        </characteristic>
+		<!-- 2A24: org.bluetooth.characteristic.model_number_string -->
+        <characteristic uuid="2A24">
+            <properties read="true" const="true" />
+            <value>BLE11x</value>
+        </characteristic>
+		<!-- 2A25 org.bluetooth.characteristic.serial_number_string -->
+		<characteristic uuid="2A25" id="xgatt_dis_2a25" >
+			<properties read="true" />
+            <value type="hex" length="6" />
+        </characteristic>
+    </service>
+    
+    <service uuid="00431c4a-a7a4-428b-a96d-d92d43c8c7cf" advertise="true">
+        <description>Gizmo Load service</description>		
+		<characteristic uuid="f1b41cde-dbf5-4acf-8679-ecb8b4dca6fe" id="xgatt_pdata">
+			<description>Weight Data</description>
+            <properties read="true" notify="true"/>
+            <value length="1"/>
+        </characteristic>		
+    </service>
+	
+	<!-- battery service -->
+	<service uuid="180f" advertise="true">	
+        <description>Battery</description>		
+        <characteristic uuid="2a19" id="xgatt_bts_2a19">
+            <properties read="true" />
+            <value type="user" />
+        </characteristic>
+    </service>
+	
+	
+	
+	
+</configuration>

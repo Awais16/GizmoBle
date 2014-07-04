@@ -1,0 +1,3 @@
+xgatt_dis_2a25 12
+xgatt_pdata 15
+xgatt_bts_2a19 20
